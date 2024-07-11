@@ -1,0 +1,13 @@
+<h1>Incubyte - Dhruv Technical Assessment - String Calculator</h1>
+
+<%= form_with url: calculators_path, method: :post, local: true do |form| %>
+  <div>
+    <%= form.label :numbers, "string:" %>
+    <%= form.text_field :numbers %>
+  </div>
+  <div>
+    <%= form.submit "SUm" %>
+  </div>
+<% end %>
+
+  <h2>Sum: <%= @result %></h2>
