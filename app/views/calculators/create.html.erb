@@ -3,7 +3,7 @@
 <%= form_with url: calculators_path, method: :post, local: true, data: { turbo: false } do |form| %>
   <div>
     <%= form.label :numbers, "string:" %>
-    <%= form.text_field :numbers %>
+    <%= form.text_field :numbers, value: @numbers %>
     <%= form.submit "SUm" %>
 
   </div>

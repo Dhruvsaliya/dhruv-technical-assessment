@@ -7,11 +7,11 @@ RSpec.describe StringCalculator do
     end
 
     it "returns the number for a single number" do
-      expect(StringCalculator.add("1")).to eq(1.0)
+      expect(StringCalculator.add("1")).to eq(1)
     end
     
     it "returns the sum of multiple integers" do
-      expect(StringCalculator.add("1, 2, 3, 4")).to eq(10.0)
+      expect(StringCalculator.add("1, 2, 3, 4")).to eq(10)
     end
     
     it "returns the sum of multiple numbers including float values" do
