@@ -22,5 +22,19 @@ RSpec.describe StringCalculator do
       expect(StringCalculator.add("1\n2\n3")).to eq(6)
       expect(StringCalculator.add("1\n2,3")).to eq(6)
     end
+
+    it "for custom delimiters" do
+      expect(StringCalculator.add("//;\n1;2;3")).to eq(6)
+      expect(StringCalculator.add("//|\n1|2|3")).to eq(6)
+    end
+    
+    it "set error for negative numbers" do
+      expect { StringCalculator.add("//;\n1;-2;3") }
+        .to raise_error(StringCalculator::NegativeNumberError, "Negative numbers not allowed: -2")
+      expect { StringCalculator.add("//;\n1;-2;3;-4") }
+        .to raise_error(StringCalculator::NegativeNumberError, "Negative numbers not allowed: -2, -4")
+      expect { StringCalculator.add("//;\n1;-2;3;-4.5") }
+        .to raise_error(StringCalculator::NegativeNumberError, "Negative numbers not allowed: -2, -4.5")
+    end
   end
 end

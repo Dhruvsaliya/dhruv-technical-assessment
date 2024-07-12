@@ -25,7 +25,8 @@ class StringCalculator
     # Check for negative numbers
     negatives = values.select { |num| num < 0 }
     unless negatives.empty?
-      raise NegativeNumberError, "Negative numbers not allowed: #{negatives.join(', ')}"
+      formatted_negatives = negatives.map { |num| num == num.to_i ? num.to_i : num }
+      raise NegativeNumberError, "Negative numbers not allowed: #{formatted_negatives.join(', ')}"
     end
 
     sum = values.sum
